@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cascadia Code', monospace;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #16213e 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a3e 50%, #16213e 100%);
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 60px 40px;
+}
+
+.main-title {
+  margin-top: 80px;
+  margin-bottom: 120px;
+  text-align: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.main-title h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #c89b7b 0%, #967bb6 50%, #7dd3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(124, 211, 252, 0.3);
+  letter-spacing: 2px;
+}
+
+.main-title p {
+  font-size: 1.2rem;
+  color: #a0aec0;
+  margin-top: 12px;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.option-button {
+  padding: 18px 32px;
+  font-size: 1.1rem;
+  font-family: 'Cascadia Code', monospace;
+  font-weight: 500;
+  border: 2px solid rgba(124, 211, 252, 0.4);
+  background: rgba(15, 23, 42, 0.5);
+  color: #7dd3fc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.option-button:hover {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(124, 211, 252, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(124, 211, 252, 0.2);
+  transform: translateY(-2px);
+}
+
+.option-button:active {
+  transform: translateY(0px);
+}
+
+.sub-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 40px 20px;
+}
+
+.container-glass {
+  background: rgba(15, 23, 42, 0.6);
+  border: 2px solid rgba(124, 211, 252, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.back-button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  font-family: 'Cascadia Code', monospace;
+  border: 1px solid rgba(124, 211, 252, 0.4);
+  background: rgba(15, 23, 42, 0.5);
+  color: #7dd3fc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(124, 211, 252, 0.8);
+  box-shadow: 0 4px 16px 0 rgba(124, 211, 252, 0.15);
+  transform: translateY(-1px);
+}
+
+.code-editor-wrapper {
+  display: flex;
+  gap: 0;
+  height: calc(85vh - 500px);
+  background: rgba(10, 15, 40, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(124, 211, 252, 0.1);
+}
+
+.line-numbers {
+  background: rgba(5, 10, 30, 0.8);
+  color: #647384;
+  padding: 16px 12px;
+  text-align: right;
+  font-size: 0.95rem;
+  border-right: 1px solid rgba(124, 211, 252, 0.1);
+  user-select: none;
+  overflow: hidden;
+  line-height: 1.6;
+  min-width: 50px;
+}
+
+.code-input {
+  flex: 1;
+  background: rgba(10, 15, 40, 0.5);
+  color: #7dd3fc;
+  border: none;
+  padding: 16px;
+  font-family: 'Cascadia Code', monospace;
+  font-size: 0.95rem;
+  resize: none;
+  outline: none;
+  line-height: 1.6;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.code-input::placeholder {
+  color: rgba(124, 211, 252, 0.3);
+}
+
+.code-input::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.code-input::-webkit-scrollbar-track {
+  background: rgba(10, 15, 40, 0.5);
+}
+
+.code-input::-webkit-scrollbar-thumb {
+  background: rgba(124, 211, 252, 0.3);
+  border-radius: 4px;
+}
+
+.code-input::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 211, 252, 0.5);
+}
+
+@media (max-width: 768px) {
+  .main-title h1 {
+    font-size: 2.5rem;
+  }
+
+  .container-glass {
+    height: 90vh;
+  }
+
+  .code-editor-wrapper {
+    height: calc(90vh - 120px);
+  }
+}
